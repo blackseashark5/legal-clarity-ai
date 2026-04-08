@@ -5,15 +5,15 @@ import Dashboard from "@/components/app/Dashboard";
 import DocumentAnalyzer from "@/components/app/DocumentAnalyzer";
 import LegalQA from "@/components/app/LegalQA";
 import RiskDetector from "@/components/app/RiskDetector";
-import ExploreConnect from "@/components/app/ExploreConnect";
+import Explore from "@/components/app/Explore";
 
 const tabs = [
   { id: "dashboard", label: "Dashboard" },
   { id: "court-services", label: "Court Services" },
   { id: "document-analyzer", label: "Document Analyzer" },
-  { id: "legal-qa", label: "Legal Q&A" },
+  { id: "legal-qa", label: "RanveerAI Assistant" },
   { id: "risk-detector", label: "Risk Detector" },
-  { id: "explore", label: "Explore & Connect" },
+  { id: "explore", label: "Explore" },
 ];
 
 const AppLayout = () => {
@@ -30,7 +30,6 @@ const AppLayout = () => {
 
   return (
     <div className="min-h-screen bg-background">
-      {/* Header */}
       <header className="bg-card border-b border-border sticky top-0 z-50">
         <div className="container mx-auto px-4 py-3 flex items-center justify-between">
           <div className="flex items-center gap-2 cursor-pointer" onClick={() => navigate("/")}>
@@ -38,7 +37,6 @@ const AppLayout = () => {
             <span className="font-heading text-lg font-bold text-foreground">RanveerAI</span>
           </div>
         </div>
-        {/* Tabs */}
         <div className="container mx-auto px-4">
           <div className="flex overflow-x-auto gap-1 -mb-px">
             {tabs.map((tab) => (
@@ -58,13 +56,12 @@ const AppLayout = () => {
         </div>
       </header>
 
-      {/* Content */}
       <main className="container mx-auto px-4 py-6">
         {activeTab === "dashboard" && <Dashboard />}
         {activeTab === "document-analyzer" && <DocumentAnalyzer />}
         {activeTab === "legal-qa" && <LegalQA />}
         {activeTab === "risk-detector" && <RiskDetector />}
-        {activeTab === "explore" && <ExploreConnect />}
+        {activeTab === "explore" && <Explore />}
       </main>
     </div>
   );
