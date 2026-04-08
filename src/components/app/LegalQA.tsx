@@ -1,12 +1,14 @@
 import { MessageSquare, Send, Bot, User } from "lucide-react";
 import { useState } from "react";
 
-const sampleMessages = [
-  { role: "bot" as const, text: "Hello! I'm RanveerAI Legal Assistant. Ask me anything about your legal documents or general legal questions." },
+type Message = { role: "bot" | "user"; text: string };
+
+const sampleMessages: Message[] = [
+  { role: "bot", text: "Hello! I'm RanveerAI Legal Assistant. Ask me anything about your legal documents or general legal questions." },
 ];
 
 const LegalQA = () => {
-  const [messages, setMessages] = useState(sampleMessages);
+  const [messages, setMessages] = useState<Message[]>(sampleMessages);
   const [input, setInput] = useState("");
 
   const handleSend = () => {
